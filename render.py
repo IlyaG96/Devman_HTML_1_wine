@@ -2,8 +2,6 @@ from datetime import date
 from collections import defaultdict
 import pandas
 
-YEAR_OF_FOUNDATION = 1920
-
 
 def count_winery_age(YEAR_OF_FOUNDATION) -> str:
     """
@@ -30,9 +28,9 @@ def make_wine_database() -> dict:
     wine_database = defaultdict(list)
     wine_descriptions = pandas.read_excel('wine3.xlsx', sheet_name="Лист1", keep_default_na=False)
     wine_descriptions = wine_descriptions.sort_index()
-    wine_list = wine_descriptions.to_dict("records")
-    for i in range(len(wine_list)):
-        wine_database[wine_list[i]["Категория"]].append(wine_list[i])
+    wines = wine_descriptions.to_dict("records")
+    for wine in wines:
+        wine_database[wines[wine]["Категория"]].append(wines[wine])
     return dict(wine_database)
 
 
