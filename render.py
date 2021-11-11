@@ -3,7 +3,7 @@ from collections import defaultdict
 import pandas
 
 
-def time_of_life() -> str:
+def count_time_if_life() -> str:
     """returns the age of the winery"""
     year_of_foundation = 1920
     time = date.today().year - year_of_foundation
