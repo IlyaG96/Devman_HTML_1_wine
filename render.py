@@ -29,8 +29,8 @@ def make_wine_database() -> dict:
     wine_descriptions = pandas.read_excel('wine3.xlsx', sheet_name="Лист1", keep_default_na=False)
     wine_descriptions = wine_descriptions.sort_index()
     wines = wine_descriptions.to_dict("records")
-    for wine in wines:
-        wine_database[wines[wine]["Категория"]].append(wines[wine])
+    for wine_num, wine in enumerate(wines):
+        wine_database[wines[wine_num]["Категория"]].append(wines[wine_num])
     return dict(wine_database)
 
 
