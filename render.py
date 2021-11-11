@@ -2,16 +2,17 @@ from datetime import date
 from collections import defaultdict
 import pandas
 
+YEAR_OF_FOUNDATION = 1920
 
-def count_winery_age() -> str:
+
+def count_winery_age(YEAR_OF_FOUNDATION) -> str:
     """
     calculates the lifetime of the winery
 
     :return f"{time} лет"
 
     """
-    year_of_foundation = 1920
-    winery_age = date.today().year - year_of_foundation
+    winery_age = date.today().year - YEAR_OF_FOUNDATION
     if str(winery_age).endswith("2" or "3"):
         return f"{winery_age} года"
     elif str(winery_age).endswith("1"):
