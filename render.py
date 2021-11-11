@@ -31,7 +31,7 @@ def make_wine_database() -> dict:
     wines = wine_descriptions.to_dict("records")
     for wine_num, wine in enumerate(wines):
         wine_database[wines[wine_num]["Категория"]].append(wines[wine_num])
-    return dict(wine_database)
+    return wine_database
 
 
 def find_min_price() -> int:
