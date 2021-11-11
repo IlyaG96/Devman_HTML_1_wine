@@ -3,3 +3,5 @@ env/
 testcase.py
 __pycache__
 .idea
+index.html
+.replit

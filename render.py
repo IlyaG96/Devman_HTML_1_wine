@@ -5,7 +5,8 @@ import pandas
 
 def time_of_life() -> str:
     """returns the age of the winery"""
-    time = (date.today().year - 1920)
+    year_of_foundation = 1920
+    time = date.today().year - year_of_foundation
     if str(time).endswith("2" or "3"):
         return f"{time} года"
     elif str(time).endswith("1"):
