@@ -1,6 +1,6 @@
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-from render import count_winery_age, make_wine_database, find_min_price
+from render import count_winery_age, make_wine_database
 
 
 # reformat this with argparse
@@ -15,7 +15,6 @@ def main():
     rendered_page = template.render(
         time_of_life=count_winery_age(YEAR_OF_FOUNDATION),
         wine_database=make_wine_database(),
-        min_price=find_min_price()
     )
 
     with open('index.html', 'w', encoding="utf8") as file:

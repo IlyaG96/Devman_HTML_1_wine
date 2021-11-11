@@ -34,11 +34,3 @@ def make_wine_database() -> dict:
     return wine_database
 
 
-def find_min_price() -> int:
-    """
-    returns minimal price of vine
-    """
-    wine_descriptions = pandas.read_excel('wine3.xlsx', sheet_name="Лист1", keep_default_na=False)
-    min_price = min(wine_descriptions["Цена"].to_list())
-    return min_price
-
