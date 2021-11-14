@@ -1,9 +1,9 @@
+import pandas
 from datetime import date
 from collections import defaultdict
-import pandas
 
 
-def count_winery_age(YEAR_OF_FOUNDATION) -> str:
+def count_winery_age(YEAR_OF_FOUNDATION: int) -> str:
     """
     calculates the lifetime of the winery
 
@@ -19,14 +19,14 @@ def count_winery_age(YEAR_OF_FOUNDATION) -> str:
         return f"{winery_age} лет"
 
 
-def make_wine_database() -> dict:
+def make_wine_database(PATH_TO_DATABASE: str) -> dict:
     """
     returns a dictionary containing information about wines and drinks from wine.xslx using pandas
 
     :return dict
     """
     wine_database = defaultdict(list)
-    wine_descriptions = pandas.read_excel('wine3.xlsx', sheet_name="Лист1", keep_default_na=False)
+    wine_descriptions = pandas.read_excel(PATH_TO_DATABASE, sheet_name="Лист1", keep_default_na=False)
     wine_descriptions = wine_descriptions.sort_index()
     wines = wine_descriptions.to_dict("records")
     for wine_num, wine in enumerate(wines):
