@@ -32,5 +32,3 @@ def make_wine_database(PATH_TO_DATABASE: str) -> dict:
     for wine_num, wine in enumerate(wines):
         wine_database[wines[wine_num]["Категория"]].append(wines[wine_num])
     return wine_database
-
-
