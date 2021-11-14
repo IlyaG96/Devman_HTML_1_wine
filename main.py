@@ -5,9 +5,12 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
-# reformat this with argparse
-
 def main():
+
+    load_dotenv()
+    YEAR_OF_FOUNDATION = int(os.getenv("YEAR_OF_FOUNDATION", default=1920))
+    PATH_TO_DATABASE = os.getenv("PATH_TO_DATABASE", default='/wine.xlsx')
+
     env = Environment(
         loader=FileSystemLoader('.'),
         autoescape=select_autoescape(['html'])
@@ -27,9 +30,6 @@ def main():
 
 
 if __name__ == '__main__':
-    load_dotenv()
-    YEAR_OF_FOUNDATION = int(os.getenv("YEAR_OF_FOUNDATION", default=1920))
-    PATH_TO_DATABASE = os.getenv("PATH_TO_DATABASE", default='/wine.xlsx')
     main()
 
 
