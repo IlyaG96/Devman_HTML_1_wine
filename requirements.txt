@@ -1,4 +1,4 @@
-python-dotenv
-pandas
-jinja2
-openpyxl
+python-dotenv==0.19.2
+pandas==1.3.4
+Jinja2==3.0.3
+openpyxl==3.0.9
