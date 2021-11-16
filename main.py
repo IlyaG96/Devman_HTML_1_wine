@@ -4,18 +4,22 @@ from render import count_winery_age, make_wine_database
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-YEAR_OF_FOUNDATION = int(os.getenv("YEAR_OF_FOUNDATION", default=1920))
-PATH_TO_DATABASE = os.getenv("PATH_TO_DATABASE", default='./wine.xlsx')
+
+
 
 
 def main():
+
+    load_dotenv()
+
+    YEAR_OF_FOUNDATION = int(os.getenv("YEAR_OF_FOUNDATION", default=1920))
+    PATH_TO_DATABASE = os.getenv("PATH_TO_DATABASE", default='./wine.xlsx')
 
     env = Environment(
         loader=FileSystemLoader('.'),
         autoescape=select_autoescape(['html'])
     )
     template = env.get_template('template.html')
-
 
     rendered_page = template.render(
         time_of_life=count_winery_age(YEAR_OF_FOUNDATION),
@@ -30,7 +34,6 @@ def main():
 
 
 if __name__ == '__main__':
-    load_dotenv()
     main()
 
 
